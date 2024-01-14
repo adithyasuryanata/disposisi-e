@@ -20,19 +20,34 @@
                     <table class="table table-striped table-bordered table-hover" id="tabelkelas" width="100%"
                         cellspacing="0">
                         <thead>
-                            <tr>
-                                <th>No.</th>
+                            <tr align="center">
+                                <th width="50px">No.</th>
                                 <th>Name</th>
                                 <th>Email</th>
                                 <th>Phone</th>
                                 <th>Role</th>
-                                <th>Action</th>
+                                <th width="156px">Action</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php $no = 1;
                             foreach ($user as $user) {
-                                echo "<tr> <td>$no</td> <td>$user->username</td> <td>$user->email</td> <td>$user->phone</td> <td>$user->role</td> <td> <div> <a href=" . base_url('admin/user/getedit/' . $user->id) . " class='btn btn-sm btn-info'><i class='fas fa-edit'></i> Edit</a> <a href=" . base_url('admin/user/delete/' . $user->id) . " class='btn btn-sm btn-danger' onclick='return confirm(\"Ingin mengapus data user ini?\");'><i class='fas fa-trash'></i> Hapus</a> </div> </td> </tr>";
+                                echo "<tr>
+                                    <td>$no</td>
+                                    <td>$user->username</td>
+                                    <td>$user->email</td>
+                                    <td>$user->phone</td>
+                                    <td>$user->role</td>
+                                    <td>
+                                        <div>
+                                            <a href=" . base_url('admin/user/getedit/' . $user->id) . " class='btn btn-sm btn-info'>
+                                            <i class='fas fa-edit'></i> Edit</a> 
+                                            <a href=" . base_url('admin/user/delete/' . $user->id) . " class='btn btn-sm btn-danger' 
+                                            onclick='return confirm(\"Ingin mengapus data user ini?\");'>
+                                            <i class='fas fa-trash'></i> Hapus</a>
+                                            </div>
+                                        </td>
+                                </tr>";
                                 $no++;
                             } ?>
                         </tbody>

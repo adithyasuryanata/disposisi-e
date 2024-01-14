@@ -38,8 +38,8 @@
                             <?php } ?>
 
                         </select>
-                    </div> <button class="btn btn-primary" type="submit"><i class="fas fa-plus"></i>
-                        Save</button>
+                    </div>
+                    <button class="btn btn-primary" type="submit"><i class="fas fa-plus"></i>Save</button>
                 </form>
             </div>
         </div>
