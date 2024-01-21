@@ -2,7 +2,7 @@
     <div class="container-fluid">
         <h1 class="mt-4"></h1>
         <ol class="breadcrumb mb-4">
-            <li class="breadcrumb-item"><a href="<?php echo site_url('admin/user') ?>">user</a></li>
+            <li class="breadcrumb-item"><a href="<?php echo site_url('admin/user') ?>">User</a></li>
             <li class="breadcrumb-item active">
                 <?php echo $title ?>
             </li>
@@ -19,7 +19,7 @@
                 <div class="table-responsive">
                     <table class="table table-striped table-bordered table-hover" id="tabelkelas" width="100%"
                         cellspacing="0">
-                        <thead>
+                        <thead class="table-primary">
                             <tr align="center">
                                 <th width="50px">No.</th>
                                 <th>Name</th>
@@ -33,11 +33,11 @@
                             <?php $no = 1;
                             foreach ($user as $user) {
                                 echo "<tr>
-                                    <td>$no</td>
+                                    <td align='center'>$no</td>
                                     <td>$user->username</td>
                                     <td>$user->email</td>
-                                    <td>$user->phone</td>
-                                    <td>$user->role</td>
+                                    <td align='center'>$user->phone</td>
+                                    <td align='center'>$user->role</td>
                                     <td>
                                         <div>
                                             <a href=" . base_url('admin/user/getedit/' . $user->id) . " class='btn btn-sm btn-info'>

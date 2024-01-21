@@ -14,7 +14,7 @@ function cek_user()
 {
     $ci = get_instance();
     $user = $ci->db->get_where('tb_user', ['username' => $ci->session->userdata('username')])->row_array();
-    if ($user['role'] == 'admin') {
+    if ($user['role'] == 'Admin') {
     } else {
         redirect('login/block');
     }

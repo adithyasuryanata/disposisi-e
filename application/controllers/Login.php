@@ -32,16 +32,17 @@ class Login extends CI_Controller
                 $data = [
                     'id' => $user['id'],
                     'email' => $user['email'],
+                    'full_name' => $user['full_name'],
                     'username' => $user['username'],
                     'role' => $user['role']
                 ];
                 $userid = $user['id'];
                 $this->session->set_userdata($data);
                 // periksa role-nya
-                if ($user['role'] == 'admin') {
+                if ($user['role'] == 'Admin') {
                     $this->_updateLastLogin($userid);
                     redirect('admin/menu');
-                } else if ($user['role'] == 'sekretaris') {
+                } else if ($user['role'] == 'Sekretaris') {
                     $this->_updateLastLogin($userid);
                     redirect('admin/menu');
                 }

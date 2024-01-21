@@ -18,10 +18,11 @@ class Masuk_model extends CI_Model
             'perihal' => $this->input->post('perihal'),
             'keterangan' => $this->input->post('keterangan'),
             'image' => $this->uploadImage(),
-            'is_active' => '1'
+            'is_active' => '1',
         ];
         $this->db->insert($this->_table, $data);
     }
+    //simpan gambar
     public function uploadImage()
     {
         $config['upload_path'] = './assets/photo/surat_masuk/';
@@ -29,9 +30,9 @@ class Masuk_model extends CI_Model
         $config['file_name'] = $this->input->post('no_surat');
         $config['overwrite'] = true;
         $config['max_size'] = 1024;
-        // $config['max_width'] = 1024; 
-        // $config['max_height'] = 768; 
-        // $config['encrypt_name'] = TRUE; 
+        // $config['max_width'] = 1024;
+        // $config['max_height'] = 768;
+        // $config['encrypt_name'] = TRUE;
         $this->load->library('upload', $config);
         if ($this->upload->do_upload('image')) {
             return $this->upload->data("file_name");
@@ -51,12 +52,20 @@ class Masuk_model extends CI_Model
         } else {
             $updateimage = $this->input->post('old_image');
         }
-        $data = ['no_surat' => $this->input->post('no_surat'), 'tgl_surat' => $this->input->post('tgl_surat'), 'surat_from' => $this->input->post('surat_from'), 'surat_to' => $this->input->post('surat_to'), 'tgl_terima' => $this->input->post('tgl_terima'), 'perihal' => $this->input->post('perihal'), 'keterangan' => $this->input->post('keterangan'), 'image' => $updateimage, 'is_active' => '1',];
+        $data = [
+            'no_surat' => $this->input->post('no_surat'),
+            'tgl_surat' => $this->input->post('tgl_surat'),
+            'surat_from' => $this->input->post('surat_from'),
+            'surat_to' => $this->input->post('surat_to'),
+            'tgl_terima' => $this->input->post('tgl_terima'),
+            'perihal' => $this->input->post('perihal'),
+            'keterangan' => $this->input->post('keterangan'),
+            'image' => $updateimage,
+            'is_active' => '1',
+        ];
         return $this->db->set($data)->where($this->primary, $id)->update($this->_table);
-        // if($this->db->affected_rows()>0){ 
-        // $this->session->set_flashdata("success","Data user Berhasil DiUpdate"); 
-        // } 
     }
+
     public function delete($id)
     {
         $this->deleteImage($id);
@@ -72,5 +81,43 @@ class Masuk_model extends CI_Model
             $filename = explode(".", $surat->image)[0];
             return array_map('unlink', glob(FCPATH . "assets/photo/surat_masuk/$filename.*"));
         }
+    }
+    public function saveAjuan()
+    {
+        $data = [
+            'no_surat' => $this->input->post('no_surat'),
+            'tgl_surat' => $this->input->post('tgl_surat'),
+            'surat_from' => $this->input->post('surat_from'),
+            'surat_to' => $this->input->post('surat_to'),
+            'tgl_terima' => '0000-00-00',
+            'perihal' => $this->input->post('perihal'),
+            'keterangan' => $this->input->post('keterangan'),
+            'image' => $this->uploadImage(),
+            'user_id' => $this->session->userdata('id'),
+            'is_active' => '1',
+        ];
+        $this->db->insert($this->_table, $data);
+    }
+    public function editdataajuan()
+    {
+        $id = $this->input->post('id');
+        $updateimage = '';
+        if (!empty($_FILES["image"]["name"])) {
+            $updateimage = $this->uploadImage();
+        } else {
+            $updateimage = $this->input->post('old_image');
+        }
+        $data = [
+            'no_surat' => $this->input->post('no_surat'),
+            'tgl_surat' => $this->input->post('tgl_surat'),
+            'surat_from' => $this->input->post('surat_from'),
+            'surat_to' => $this->input->post('surat_to'),
+            'tgl_terima' => $this->input->post('tgl_terima'),
+            'perihal' => $this->input->post('perihal'),
+            'keterangan' => $this->input->post('keterangan'),
+            'image' => $updateimage,
+            'is_active' => '1',
+        ];
+        return $this->db->set($data)->where($this->primary, $id)->update($this->_table);
     }
 }

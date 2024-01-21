@@ -4,17 +4,26 @@ class User extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+        cek_login();
+        cek_user();
         $this->load->model("User_model");
         $this->load->library('form_validation');
     }
     public function index()
     {
-        $data = array('title' => 'View Data User', 'user' => $this->User_model->getAll(), 'content' => 'admin/user/index');
+        $data = array(
+            'title' => 'View Data User',
+            'user' => $this->User_model->getAll(),
+            'content' => 'admin/user/index'
+        );
         $this->load->view('admin/template/main', $data);
     }
     public function add()
     {
-        $data = array('title' => 'Tambah Data User', 'content' => 'admin/user/add_form');
+        $data = array(
+            'title' => 'Tambah Data User',
+            'content' => 'admin/user/add_form'
+        );
         $this->load->view('admin/template/main', $data);
     }
     public function save()
@@ -27,7 +36,11 @@ class User extends CI_Controller
     }
     public function getedit($id)
     {
-        $data = array('title' => 'Update Data user', 'user' => $this->User_model->getById($id), 'content' => 'admin/user/edit_form');
+        $data = array(
+            'title' => 'Update Data user',
+            'user' => $this->User_model->getById($id),
+            'content' => 'admin/user/edit_form'
+        );
         $this->load->view('admin/template/main', $data);
     }
     public function edit()
