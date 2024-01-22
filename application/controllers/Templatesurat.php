@@ -1,5 +1,4 @@
-<?php
-defined('BASEPATH') or exit('No direct script access allowed');
+<?php defined('BASEPATH') or exit('No direct script access allowed');
 class Templatesurat extends CI_Controller
 {
     public function __construct()
@@ -12,10 +11,10 @@ class Templatesurat extends CI_Controller
     public function index()
     {
         $data = array(
-            'title' => 'View Data Template',
+            'title' => 'View Data History',
             'userlog' => infoLogin(),
             'template' => $this->Template_model->getAll(),
-            'content' => 'template_surat/index'
+            'content' => 'Template_surat/index'
         );
         $this->load->view('admin/template/main', $data);
     }
@@ -26,15 +25,18 @@ class Templatesurat extends CI_Controller
         $perihal = $surat->perihal;
         $date = $surat->tgl_kirim;
         $kepada = $surat->tujuan_surat;
-        // memanggil dan membaca template dokumen
+
+        // memanggil dan membaca template dokumen 
         $alamat_file = base_url('assets/lap/contoh_surat.rtf');
         $document = file_get_contents($alamat_file);
-        // isi dokumen dinyatakan dalam bentuk string
+
+        // isi dokumen dinyatakan dalam bentuk string 
         $document = str_replace("#NAMA", $nama, $document);
         $document = str_replace("#PER", $perihal, $document);
         $document = str_replace("#SURAT_TO", $kepada, $document);
         $document = str_replace("#DATE", $date, $document);
-        // header untuk membuka file output RTF dengan MS. Word
+
+        // header untuk membuka file output RTF dengan MS. Word 
         header("Content-type: application/msword");
         header("Content-disposition: inline; filename=Laporan_contoh.doc");
         header("Content-length: " . strlen($document));
