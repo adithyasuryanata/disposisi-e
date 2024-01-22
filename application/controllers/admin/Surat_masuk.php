@@ -12,7 +12,7 @@ class Surat_masuk extends CI_Controller
     public function index()
     {
         $data = array(
-            'title' => 'View Data Surat',
+            'title' => 'View Data Surat Masuk',
             'surat' => $this->Masuk_model->getAll(),
             'content' => 'admin/surat_masuk/index'
         );

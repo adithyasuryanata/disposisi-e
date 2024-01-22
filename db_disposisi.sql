@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 22, 2024 at 07:32 AM
+-- Generation Time: Jan 22, 2024 at 03:33 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 7.4.33
 
@@ -65,7 +65,7 @@ CREATE TABLE `tb_template_surat` (
   `id` int(11) NOT NULL,
   `nama` varchar(60) NOT NULL,
   `tujuan_surat` varchar(60) NOT NULL,
-  `tgl_kirim` datetime NOT NULL,
+  `tgl_kirim` date NOT NULL,
   `perihal` varchar(150) NOT NULL,
   `keterangan` text NOT NULL,
   `is_active` int(2) NOT NULL
@@ -76,7 +76,8 @@ CREATE TABLE `tb_template_surat` (
 --
 
 INSERT INTO `tb_template_surat` (`id`, `nama`, `tujuan_surat`, `tgl_kirim`, `perihal`, `keterangan`, `is_active`) VALUES
-(1, 'Adithya', 'Dinas Pendidikan', '2024-01-22 04:46:17', 'Permohonan Dana Wisuda', 'Kosong', 1);
+(1, 'Adithya', 'Dinas Pendidikan', '2024-01-22', 'Permohonan Dana Wisuda', 'Kosong', 1),
+(3, 'Adithya', 'Nisya', '2024-01-22', 'Sesuatu', 'Oke', 1);
 
 -- --------------------------------------------------------
 
@@ -101,8 +102,8 @@ CREATE TABLE `tb_user` (
 --
 
 INSERT INTO `tb_user` (`id`, `username`, `password`, `email`, `full_name`, `phone`, `role`, `last_login`, `is_active`) VALUES
-(1, 'Adithya', '$2y$10$gE70ynCtzZVBuGga0MYKxOU5i35dgpogGOK6WcVwB9HpN1ClFqFXC', 'adithya@gmail.com', 'Adithya Suryanata Winardi', '089523236137', 'Admin', '2024-01-22 06:28:01', 1),
-(2, 'Sya', '$2y$10$dlecGVEDysjEaC9ZQF.kOOMpVWCpxVMFWqdlhSWHhQTbe8RvwJ4xm', 'sya@gmail.com', 'Syaaa', '089537128123', 'Sekretaris', '2024-01-19 08:04:02', 1),
+(1, 'Adithya', '$2y$10$gE70ynCtzZVBuGga0MYKxOU5i35dgpogGOK6WcVwB9HpN1ClFqFXC', 'adithya@gmail.com', 'Adithya Suryanata Winardi', '089523236137', 'Admin', '2024-01-22 13:11:36', 1),
+(2, 'Sya', '$2y$10$dlecGVEDysjEaC9ZQF.kOOMpVWCpxVMFWqdlhSWHhQTbe8RvwJ4xm', 'sya@gmail.com', 'Syaaa', '089537128123', 'Sekretaris', '2024-01-22 14:32:58', 1),
 (5, 'Ujang', '$2y$10$gE70ynCtzZVBuGga0MYKxOU5i35dgpogGOK6WcVwB9HpN1ClFqFXC', 'ujang@gmail.com', 'Ujang Jee', '213213123217', 'Admin', '2024-01-19 08:37:32', 1);
 
 --
@@ -141,7 +142,7 @@ ALTER TABLE `tb_surat_masuk`
 -- AUTO_INCREMENT for table `tb_template_surat`
 --
 ALTER TABLE `tb_template_surat`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `tb_user`
