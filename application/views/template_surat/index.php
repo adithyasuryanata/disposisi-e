@@ -27,7 +27,7 @@
                                 <th>Tujuan Surat</th>
                                 <th>Tanggal Kirim</th>
                                 <th>Keterangan</th>
-                                <th width="245px">Action</th>
+                                <th width="245px">Actions</th>
                             </tr>
                         </thead>
                         <tbody>

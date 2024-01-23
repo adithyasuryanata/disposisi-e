@@ -26,7 +26,7 @@
                                 <th>Email</th>
                                 <th>Phone</th>
                                 <th>Role</th>
-                                <th width="156px">Action</th>
+                                <th width="156px">Actions</th>
                             </tr>
                         </thead>
                         <tbody>

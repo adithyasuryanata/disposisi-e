@@ -12,7 +12,7 @@
                 <form action="<?php echo site_url('admin/surat_masuk/save') ?>" method="post"
                     enctype="multipart/form-data">
                     <div class="mb-3">
-                        <label>NO SURAT MASUK <code>*</code></label>
+                        <label>NO. SURAT MASUK <code>*</code></label>
                         <input class="form-control" type="text" name="no_surat" placeholder="NO SURAT MASUK" required>
                     </div>
                     <div class="mb-3">

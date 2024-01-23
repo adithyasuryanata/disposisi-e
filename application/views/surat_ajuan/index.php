@@ -23,13 +23,13 @@
                         <thead class="table-primary">
                             <tr align="center">
                                 <th width="50px">No.</th>
-                                <th>No Surat</th>
+                                <th>No. Surat</th>
                                 <th>Perihal</th>
                                 <th>Keterangan</th>
                                 <th>Taggal Surat</th>
                                 <th>Tanggal Terima</th>
                                 <th>Surat</th>
-                                <th width="156px">Action</th>
+                                <th width="156px">Actions</th>
                             </tr>
                         </thead>
                         <tbody>

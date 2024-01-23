@@ -23,8 +23,8 @@
                     </div>
                     <div class="mb-3">
                         <label>TANGGAL KIRIM <code>*</code></label>
-                        <input class="form-control" type="date" name="tgl_kirim" value="<?= $suratdata->tgl_kirim; ?>"
-                            placeholder="TANGGAL KIRIM" required>
+                        <input class="form-control" type="datetime-local" name="tgl_kirim"
+                            value="<?= $suratdata->tgl_kirim; ?>" placeholder="TANGGAL KIRIM" required>
                     </div>
                     <div class="mb-3">
                         <label for="email">PERIHAL <code>*</code></label>
